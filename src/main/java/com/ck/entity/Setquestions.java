@@ -22,5 +22,6 @@ public class Setquestions {
 	}
 	public void setQuestionsName(String questionsName) {
 		QuestionsName = questionsName;
-	} 
+	}
+	
 }
