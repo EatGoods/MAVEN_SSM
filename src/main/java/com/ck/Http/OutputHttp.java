@@ -42,13 +42,13 @@ public class OutputHttp {
 	/**
 	 * @描述 设置失败状态和消息
 	 */
-	public List setRequest_failed(String msg) {
+	public Map setRequest_failed(String msg) {
 		this.status = Request_failed;
 		this.msg=msg;
-		List list=new ArrayList();
-		list.add(status);
-		list.add(msg);
-		return list;
+		Map<String, Object> map=new HashMap<String,Object>();
+		map.put("msg", msg);
+		map.put("code", status);
+		return map;
 	}
 	/**
 	 * @描述 设置服务器错误状态和消息
