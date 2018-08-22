@@ -40,8 +40,8 @@ public class SetquestionsController {
 			String data=JSONArray.fromObject(map).toString();
 			return data;
 		} catch (Exception e) {
-			List list=output.setRequest_failed("请求失败");
-			String data=String.join("", list);
+			Map map=output.setRequest_failed("请求失败");
+			String data=JSONArray.fromObject(map).toString();
 			return data;
 		}
        
