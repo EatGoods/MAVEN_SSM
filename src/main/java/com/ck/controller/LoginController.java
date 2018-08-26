@@ -1,11 +1,15 @@
 package com.ck.controller;
 
+import java.util.Map;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ck.entity.UserAdmin;
 import com.ck.service.UserAdminService;
@@ -17,15 +21,10 @@ public class LoginController {
 	@Resource
 	private UserAdminService userAadminService;
 	
-	@RequestMapping(value="/login",method= {RequestMethod.GET,RequestMethod.POST})
-	public String login(UserAdmin userAdmin,HttpSession session) {
-		System.out.println("123");
-		UserAdmin Loginuser=this.userAadminService.validateUserAdmin(userAdmin);
-		if(Loginuser!=null) {
-			session.setAttribute("Loginuser", Loginuser);
-			return "index";
-		}else {
-			return "login";
-		}
+	@ResponseBody
+	@RequestMapping(value="/login",method= RequestMethod.POST,produces="application/json;charset=UTF-8")
+	public String login(@RequestBody Map<String, Object> map) {
+		
+		return"";
 	}
 }
